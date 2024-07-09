@@ -6,7 +6,7 @@ import ollama
 
 # Choose the model usage 'bedrock' or 'local' or 'lib'
 # ensure to have valid AWS credentials to use bedrock
-MODEL_USAGE = 'lib'
+MODEL_USAGE = 'bedrock'
 
 # bedrock model details
 BEDROCK_MODEL_NAME = "anthropic.claude-3-haiku-20240307-v1:0"
