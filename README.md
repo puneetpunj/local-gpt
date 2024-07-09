@@ -22,3 +22,13 @@ make install
 # run llama model locally
 make run
 ```
+
+## Run Model
+
+### Install Packages
+
+![run](./docs/run.png)
+
+### Model Ui
+
+![ui](./docs/ui.png)
