@@ -6,7 +6,7 @@ import ollama
 
 # Choose the model usage 'bedrock' or 'local' or 'lib'
 # ensure to have valid AWS credentials to use bedrock
-MODEL_USAGE = 'bedrock'
+MODEL_USAGE = 'local'
 
 # bedrock model details
 BEDROCK_MODEL_NAME = "anthropic.claude-3-haiku-20240307-v1:0"
@@ -71,11 +71,14 @@ def generate_message_using_bedrock(prompt):
         "max_tokens": max_tokens,
         "messages": user_message
     })
-    response = bedrock_runtime.invoke_model(body=body, modelId=model_id)
-    response_body = json.loads(response.get('body').read())
-    response_text = response_body['content'][0]['text']
-    return response_text
-
+    try:
+        response = bedrock_runtime.invoke_model(body=body, modelId=model_id)
+        response_body = json.loads(response.get('body').read())
+        response_text = response_body['content'][0]['text']
+        return response_text
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
 def generate_response(prompt):    
     if prompt is None or prompt == "":
         return None

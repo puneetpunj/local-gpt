@@ -2,3 +2,4 @@ ollama
 boto3
 requests
 gradio
+watchdog

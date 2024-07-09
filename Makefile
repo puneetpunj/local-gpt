@@ -1,7 +1,7 @@
 all: install run
 
 run:
-	python3 main.py
+	python3 watch_and_reload.py
 .PHONY: run
 
 install:
